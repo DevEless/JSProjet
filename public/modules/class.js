@@ -3,12 +3,17 @@ class Boss {
         this.name = name;
         this.health = health;
         this.attack = attack;
-        
+
     }
 
     proposeEnigme() {
         if (this.health < this.maxHealth * 0.2) {
-            console.log(`${this.name} propose une enigme pour gagner du temps !`);
+            const phrases = ["Qu'est ce qui a quatre pates le matin deux le soir et trois a midi ?", 'phrase 2', 'phrase 3'];
+            const index = Math.floor(Math.random() * phrases.length);
+            const phrase = phrases[index];
+            
+            console.log(phrase);
+            
         }
     }
 }
@@ -17,6 +22,6 @@ const Sauron = new Boss('Sauron', 1000, 50);
 const Chronos = new Boss('Chronos', 500, 75);
 const Lilith = new Boss('Lilith', 250, 100);
 
-Sauron.proposeEnigme(); // Affiche "Sauron propose une enigme pour gagner du temps !" si Sauron a moins de 200 points de vie
-Chronos.proposeEnigme(); // Affiche "Chronos propose une enigme pour gagner du temps !" si Chronos a moins de 100 points de vie
-Lilith.proposeEnigme(); // Affiche "Lilith propose une enigme pour gagner du temps !" si Lilith a moins de 50 points de vie
+Sauron.proposeEnigme(); 
+Chronos.proposeEnigme(); 
+Lilith.proposeEnigme(); 
