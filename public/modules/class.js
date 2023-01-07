@@ -25,3 +25,5 @@ const Lilith = new Boss('Lilith', 250, 100);
 Sauron.proposeEnigme(); 
 Chronos.proposeEnigme(); 
 Lilith.proposeEnigme(); 
+
+//Héros//
