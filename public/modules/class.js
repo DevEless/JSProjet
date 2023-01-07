@@ -18,9 +18,6 @@ class Boss {
     }
 }
 
-const Sauron = new Boss('Sauron', 1000, 50);
-const Chronos = new Boss('Chronos', 500, 75);
-const Lilith = new Boss('Lilith', 250, 100);
 
 Sauron.proposeEnigme();
 Chronos.proposeEnigme();
@@ -42,14 +39,37 @@ class Guerrier {
             this.rage = 0;
             setTimeout(() => {
                 this.attack /= 1.25;
-            }, 1000); 
+            }, 1000);
         }
     }
 
     defense() {
+        this.pointsDeVie += 10;
     }
 
     attaque() {
-        this.attack = boss.health --
+        this.attack = boss.health--
+    }
+}
+class Mage {
+    constructor(nom) {
+        this.nom = nom;
+        this.pointsDeVie = 100;
+        this.pointsDAttaque = 10;
+        this.pointsDeMana = Math.floor(Math.random() * 3) + 7;
+    }
+
+    defense() {
+        this.pointsDeVie += 5;
+    }
+
+    attaque() {
+        if (this.pointsDeMana >= 2) {
+            this.pointsDeMana -= 2;
+            return this.pointsDAttaque;
+        } else {
+            this.pointsDeMana += 7;
+            return 0;
+        }
     }
 }
