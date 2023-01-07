@@ -8,7 +8,7 @@ class Boss {
 
     proposeEnigme() {
         if (this.health < this.maxHealth * 0.2) {
-            const phrases = ["Qu'est ce qui a quatre pates le matin deux le soir et trois a midi ?", 'phrase 2', 'phrase 3'];
+            const phrases = ["Qu'est ce qui a quatre pates le matin deux le soir et trois a midi ?", "je suis le bien et le mal mais je n'ai pourtant aucun corps qui suis je ?", "Je commence la nuit et termine le matin qui suis je ?"];
             const index = Math.floor(Math.random() * phrases.length);
             const phrase = phrases[index];
             
