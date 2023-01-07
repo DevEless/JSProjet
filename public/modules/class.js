@@ -47,10 +47,9 @@ class Guerrier {
     }
 
     defense() {
-
     }
 
     attaque() {
-
+        this.attack = boss.health --
     }
 }
