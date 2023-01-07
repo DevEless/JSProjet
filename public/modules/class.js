@@ -27,3 +27,12 @@ Chronos.proposeEnigme();
 Lilith.proposeEnigme(); 
 
 //Héros//
+class Héros {
+    constructor(name, health, attack, rage) {
+        this.name = name;
+        this.health = health;
+        this.attack = attack;
+        this.ragepoint = rage
+
+    }
+}
