@@ -73,3 +73,29 @@ class Mage {
         }
     }
 }
+
+class Archer {
+    constructor(nom) {
+        this.nom = nom;
+        this.pointsDeVie = 100;
+        this.pointsDAttaque = 10;
+        this.nombreDeFleches = Math.floor(Math.random() * 5) + 7;
+    }
+
+    defense() {
+        this.pointsDeVie *= 2.5;
+        this.pointsDAttaque *= 0.5;
+    }
+
+    attaque() {
+        if (this.nombreDeFleches >= 2) {
+            this.nombreDeFleches -= 2;
+            this.pointsDAttaque *= 1.4;
+            this.pointsDeVie *= 0.75;
+            return this.pointsDAttaque;
+        } else {
+            this.nombreDeFleches += 6;
+            return 0;
+        }
+    }
+}
