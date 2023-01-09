@@ -30,7 +30,7 @@ Lilith.proposeEnigme();
 //Héros//
 export class Guerrier {
     constructor(name, health, attack) {
-        this.nom = name;
+        this.name = name;
         this.health = health;
         this.attack = attack;
         this.rage = 0;
@@ -52,25 +52,26 @@ export class Guerrier {
     }
 
     attaque() {
-
     }
 }
 export class Mage {
     constructor(name, health, attack) {
-        this.nom = name;
+        this.name = name;
         this.health = health;
         this.attack = attack;
         this.pointsDeMana = Math.floor(Math.random() * 3) + 7;
     }
 
     defense() {
-        this.health += 5;
+        this.health += 50;
     }
 
-    attaque() {
+    attaque(boss) {
         if (this.pointsDeMana >= 2) {
             this.pointsDeMana -= 2;
-            return this.pointsDAttaque;
+            boss.health -= this.attack
+            return this.attack;
+
         } else {
             this.pointsDeMana += 7;
             return 0;
@@ -80,7 +81,7 @@ export class Mage {
 
 export class Archer {
     constructor(name, health, attack) {
-        this.nom = name;
+        this.name = name;
         this.health = health;
         this.attack = attack;
         this.nombreDeFleches = Math.floor(Math.random() * 5) + 7;
@@ -94,7 +95,7 @@ export class Archer {
     attaque() {
         if (this.nombreDeFleches >= 2) {
             this.nombreDeFleches -= 2;
-            this.pointsDAttaque *= 1.4;
+            this.attack *= 1.4;
             this.health *= 0.75;
             return this.attack;
         } else {
