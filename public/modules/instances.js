@@ -73,10 +73,11 @@ function chooseCharacterState(guerrier) {
     } else {
         console.log("Veuillez entrer un choix valide");
         this.chooseState();
-    
+
+    }
 }
-}
-function chooseCharacterState(mage) {
+
+function chooseCharacterState1(mage) {
 
     alert("1. Mettre le mage en mode attaque");
     alert("2. Mettre le mage en mode défense");
@@ -87,17 +88,18 @@ function chooseCharacterState(mage) {
 
 
     if (choice === "1") {
-        mage.state = mage.attaque();
+        mage.state1 = mage.attaque();
     } else if (choice === "2") {
-        mage.state = mage.defense();
-        this.state = "Normal";
+        mage.state1 = mage.defense();
+        this.state1 = "Normal";
     } else {
         console.log("Veuillez entrer un choix valide");
-        this.chooseState();
-    
+        this.chooseState1();
+
+    }
 }
-}
-function chooseCharacterState(archer) {
+
+function chooseCharacterState2(archer) {
 
     alert("1. Mettre l'archer en mode attaque");
     alert("2. Mettre l'archer en mode défense");
@@ -108,18 +110,41 @@ function chooseCharacterState(archer) {
 
 
     if (choice === "1") {
-        archer.state = archer.attaque();
+        archer.state2 = archer.attaque();
     } else if (choice === "2") {
-        archer.state = archer.defense();
-        this.state = "Normal";
+        archer.state2 = archer.defense();
+        this.state2 = "Normal";
     } else {
         console.log("Veuillez entrer un choix valide");
-        this.chooseState();
-    
-}
+        this.chooseState2();
+
+    }
 }
 
 alert("le combat va commencer, tenez vous pret !")
 chooseCharacterState(guerrier)
-chooseCharacterState(mage)
-chooseCharacterState(archer)
+chooseCharacterState1(mage)
+chooseCharacterState2(archer)
+
+function attack(characters) {
+    const target = characters[Math.floor(Math.random() * characters.length)];
+    console.log(`Le boss attaque ${target.name}.`);
+    target.health -= target.defense; 
+    if (target.health <= 0) {
+        console.log(`${target.name} est tombé au combat.`);
+
+        characters.splice(characters.indexOf(target), 1);
+    }
+}
+
+function calculateHealth(characters, boss) {
+    console.log(`La vie du boss est de ${bossHealth}.`);
+    characters.forEach(character => {
+        console.log(`La vie de ${character.name} est de ${character.health}.`);
+    });
+}
+
+
+attack(personnages);
+calculateHealth(personnages, chosenBoss);
+
