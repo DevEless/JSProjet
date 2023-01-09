@@ -56,10 +56,10 @@ export class Guerrier {
     }
 }
 export class Mage {
-    constructor(nom) {
+    constructor(nom, health, attack) {
         this.nom = nom;
-        this.pointsDeVie = 100;
-        this.pointsDAttaque = 10;
+        this.health = health;
+        this.attack = attack;
         this.pointsDeMana = Math.floor(Math.random() * 3) + 7;
     }
 
@@ -79,10 +79,10 @@ export class Mage {
 }
 
 export class Archer {
-    constructor(nom) {
+    constructor(nom, health, attack) {
         this.nom = nom;
-        this.pointsDeVie = 100;
-        this.pointsDAttaque = 10;
+        this.health = health;
+        this.attack = attack;
         this.nombreDeFleches = Math.floor(Math.random() * 5) + 7;
     }
 

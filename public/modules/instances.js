@@ -33,33 +33,32 @@ alert(`Vous allez affronter le grand  ${chosenBoss.name}.`);
 alert(`Le sort est cruel, quels sera le nom de vos trois Héros légendaire ?`)
 
 
-
-function chooseHero() {
-    const heroClass = prompt('Choisissez votre classe de héros: Guerrier, Mage ou Archer');
-    const nom = prompt('Choisissez le nom de votre héros');
-
-    switch (heroClass) {
-        case 'Guerrier':
-            return new Guerrier(nom);
-        case 'Mage':
-            return new Mage(nom);
-        case 'Archer':
-            return new Archer(nom);
-        default:
-            throw new Error(`Classe de héros inconnue: ${heroClass}`);
-    }
+function obtenirNomUtilisateur(classe) {
+    const nom = prompt(`Veuillez entrer le nom du ${classe} :`);
+    return nom;
 }
 
-function chooseHeroes() {
-    const heroes = [];
+const nomGuerrier = obtenirNomUtilisateur('guerrier');
+const nomMage = obtenirNomUtilisateur('mage');
+const nomArcher = obtenirNomUtilisateur('archer');
 
-    for (let i = 1; i <= 3; i++) {
-        const hero = chooseHero();
-        heroes.push(hero);
-    }
+const guerrier = new Guerrier(nomGuerrier);
+const mage = new Mage(nomMage);
+const archer = new Archer(nomArcher);
 
-    return heroes;
+const listePersonnages = [guerrier, mage, archer];
+
+function attack() {
+    let index = 100
+    let heros1 = new Guerrier(attack)
+    heros1.attack = prompt(`entrez une valeur entre 1 et ${index}`)
+    let index2 = index - heros1.attack  
+    let heros2 = new Mage(attack)
+    heros2.attack = prompt(`entrez une valeur entre 1 et ${index2}`)
+    let calcul = index2 - heros2.attack
+    let index3 = index - calcul
+    let heros3 = new Archer(attack) 
+    heros3.attack = prompt(`entrez une valeur entre 1 et ${index3}`)
+
 }
-
-const heroes = chooseHeroes();
-console.log(`Vos héros sont ${heroes[0].nom} de la classe ${heroes[0].constructor.name}, ${heroes[1].nom} de la classe ${heroes[1].constructor.name} et ${heroes[2].nom} de la classe ${heroes[2].constructor.name}.`);
+attack()
