@@ -1,4 +1,4 @@
-class Boss {
+export class Boss {
     constructor(name, health, attack) {
         this.name = name;
         this.health = health;
@@ -18,13 +18,17 @@ class Boss {
     }
 }
 
+const Sauron = new Boss('Sauron', 1000, 50);
+const Chronos = new Boss('Chronos', 500, 75);
+const Lilith = new Boss('Lilith', 250, 100);
 
 Sauron.proposeEnigme();
 Chronos.proposeEnigme();
 Lilith.proposeEnigme();
 
+
 //Héros//
-class Guerrier {
+export class Guerrier {
     constructor(name, health, attack) {
         this.name = name;
         this.health = health;
@@ -51,7 +55,7 @@ class Guerrier {
         this.attack = boss.health--
     }
 }
-class Mage {
+export class Mage {
     constructor(nom) {
         this.nom = nom;
         this.pointsDeVie = 100;
@@ -74,7 +78,7 @@ class Mage {
     }
 }
 
-class Archer {
+export class Archer {
     constructor(nom) {
         this.nom = nom;
         this.pointsDeVie = 100;
