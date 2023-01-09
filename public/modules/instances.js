@@ -48,17 +48,44 @@ const archer = new Archer(nomArcher);
 
 const listePersonnages = [guerrier, mage, archer];
 
-function attack() {
-    let index = 100
-    let heros1 = new Guerrier(attack)
-    heros1.attack = prompt(`entrez une valeur entre 1 et ${index}`)
-    let index2 = index - heros1.attack  
-    let heros2 = new Mage(attack)
-    heros2.attack = prompt(`entrez une valeur entre 1 et ${index2}`)
-    let calcul = index2 - heros2.attack
-    let index3 = index - calcul
-    let heros3 = new Archer(attack) 
-    heros3.attack = prompt(`entrez une valeur entre 1 et ${index3}`)
-
+function createGuerrier() {
+    let index = 1000;
+    let guerrier = new Guerrier();
+    guerrier.attack = parseInt(prompt(`Entrez une valeur entre 1 et ${index} pour l'attaque du guerrier`));
+    return guerrier;
 }
+
+function createMage() {
+    let index2 = 1000 - guerrier.attack;
+    let mage = new Mage();
+    mage.attack = parseInt(prompt(`Entrez une valeur entre 1 et ${index2} pour l'attaque du mage`));
+    return mage;
+}
+
+function createArcher() {
+    let index3 = 1000 - guerrier.attack - mage.attack;
+    let archer = new Archer();
+    archer.health = parseInt(prompt(`Entrez une valeur entre 1 et ${index3} pour la santé de l'archer`));
+    return archer;
+}
+
+
+function health() {
+    let index = 1000;
+    let guerrier = new Guerrier();
+    guerrier.health = parseInt(prompt(`Entrez une valeur entre 1 et ${index} pour la santé du guerrier`));
+    let index2 = index - guerrier.health;
+    let mage = new Mage();
+    mage.health = parseInt(prompt(`Entrez une valeur entre 1 et ${index2} pour la santé du mage`));
+    let calcul = index2 - mage.health;
+    let index3 = index - calcul;
+    let archer = new Archer();
+    archer.health = parseInt(prompt(`Entrez une valeur entre 1 et ${index3} pour la santé de l'archer`));
+}
+
+createGuerrier() 
+createMage()
+createArcher()
 attack()
+const Hero1 = new Guerrier(`${nomGuerrier}`, attack())
+console.log(Hero1)
