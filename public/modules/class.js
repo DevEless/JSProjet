@@ -29,8 +29,8 @@ Lilith.proposeEnigme();
 
 //Héros//
 export class Guerrier {
-    constructor(name, health, attack) {
-        this.name = name;
+    constructor(nom, health, attack) {
+        this.nom = nom;
         this.health = health;
         this.attack = attack;
         this.rage = 0;
