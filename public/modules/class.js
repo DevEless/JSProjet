@@ -95,8 +95,8 @@ export class Archer {
         if (this.nombreDeFleches >= 2) {
             this.nombreDeFleches -= 2;
             this.pointsDAttaque *= 1.4;
-            this.pointsDeVie *= 0.75;
-            return this.pointsDAttaque;
+            this.health *= 0.75;
+            return this.attack;
         } else {
             this.nombreDeFleches += 6;
             return 0;
