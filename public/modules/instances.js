@@ -42,50 +42,19 @@ const nomGuerrier = obtenirNomUtilisateur('guerrier');
 const nomMage = obtenirNomUtilisateur('mage');
 const nomArcher = obtenirNomUtilisateur('archer');
 
-const guerrier = new Guerrier(nomGuerrier);
-const mage = new Mage(nomMage);
-const archer = new Archer(nomArcher);
 
-const listePersonnages = [guerrier, mage, archer];
+function createPersonnage() {
+    const healthPoints = prompt("Entrez le nombre de points de vie à attribuer aux personnages entre 1 et 1000:");
+    const attackPoints = prompt("Entrez le nombre de points d'attaque à attribuer aux personnages :");
 
-function createGuerrier() {
-    let index = 1000;
-    let guerrier = new Guerrier();
-    guerrier.attack = parseInt(prompt(`Entrez une valeur entre 1 et ${index} pour l'attaque du guerrier`));
-    return guerrier;
+    const guerrier = new Guerrier(nomGuerrier, healthPoints, attackPoints);
+    const mage = new Mage(nomMage, healthPoints, attackPoints);
+    const archer = new Archer(nomArcher, healthPoints, attackPoints);
+
+    return [guerrier, mage, archer];
 }
 
-function createMage() {
-    let index2 = 1000 - guerrier.attack;
-    let mage = new Mage();
-    mage.attack = parseInt(prompt(`Entrez une valeur entre 1 et ${index2} pour l'attaque du mage`));
-    return mage;
-}
+const personnages = createPersonnage();
+const [guerrier, mage, archer] = personnages;
+console.log(guerrier, mage, archer)
 
-function createArcher() {
-    let index3 = 1000 - guerrier.attack - mage.attack;
-    let archer = new Archer();
-    archer.health = parseInt(prompt(`Entrez une valeur entre 1 et ${index3} pour la santé de l'archer`));
-    return archer;
-}
-
-
-function health() {
-    let index = 1000;
-    let guerrier = new Guerrier();
-    guerrier.health = parseInt(prompt(`Entrez une valeur entre 1 et ${index} pour la santé du guerrier`));
-    let index2 = index - guerrier.health;
-    let mage = new Mage();
-    mage.health = parseInt(prompt(`Entrez une valeur entre 1 et ${index2} pour la santé du mage`));
-    let calcul = index2 - mage.health;
-    let index3 = index - calcul;
-    let archer = new Archer();
-    archer.health = parseInt(prompt(`Entrez une valeur entre 1 et ${index3} pour la santé de l'archer`));
-}
-
-createGuerrier() 
-createMage()
-createArcher()
-attack()
-const Hero1 = new Guerrier(`${nomGuerrier}`, attack())
-console.log(Hero1)

@@ -3,7 +3,7 @@ export class Boss {
         this.name = name;
         this.health = health;
         this.attack = attack;
-
+        this.maxHealth = health
     }
 
     proposeEnigme() {
@@ -48,11 +48,11 @@ export class Guerrier {
     }
 
     defense() {
-        this.pointsDeVie += 10;
+        this.health += 10;
     }
 
     attaque() {
-        this.attack = boss.health--
+
     }
 }
 export class Mage {
@@ -64,7 +64,7 @@ export class Mage {
     }
 
     defense() {
-        this.pointsDeVie += 5;
+        this.health += 5;
     }
 
     attaque() {
@@ -87,8 +87,8 @@ export class Archer {
     }
 
     defense() {
-        this.pointsDeVie *= 2.5;
-        this.pointsDAttaque *= 0.5;
+        this.health *= 2.5;
+        this.attack *= 0.5;
     }
 
     attaque() {
