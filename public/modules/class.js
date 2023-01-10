@@ -1,9 +1,13 @@
+import {
+    chosenBoss , boss
+} from "./instances.js"
 export class Boss {
     constructor(name, health, attack) {
         this.name = name;
         this.health = health;
         this.attack = attack;
-        this.maxHealth = health
+        this.maxHealth = 250
+
     }
 
     proposeEnigme() {
@@ -19,9 +23,12 @@ export class Boss {
 }
 
 // chelou a voir
-const Sauron = new Boss('Sauron', 1000, 50);
-const Chronos = new Boss('Chronos', 500, 75);
-const Lilith = new Boss('Lilith', 250, 100);
+const Sauron = new Boss("Sauron", 1000, 50);
+const Chronos = new Boss("Chronos", 500, 75);
+const Lilith = new Boss("Lilith", 250, 100);
+
+
+
 
 Sauron.proposeEnigme();
 Chronos.proposeEnigme();
@@ -54,7 +61,8 @@ export class Guerrier {
         this.health += 10;
     }
 
-    attaque() {
+    attaque(chosenBoss) {
+        chosenBoss.health -= this.attack;
     } 
 }
 export class Mage {
@@ -63,17 +71,20 @@ export class Mage {
         this.health = health;
         this.attack = attack;
         this.pointsDeMana = Math.floor(Math.random() * 3) + 7;
+
     }
 
     defense() {
         this.health += 50;
     }
 
-    attaque(boss) {
+    attaque(chooseRandomBoss) {
         if (this.pointsDeMana >= 2) {
             this.pointsDeMana -= 2;
-            boss.health -= this.attack
-            return this.attack;
+            chosenBoss.health -= this.attack;
+            console.log(chosenBoss.health)
+            
+            
 
         } else {
             this.pointsDeMana += 7;
@@ -95,12 +106,14 @@ export class Archer {
         this.attack *= 0.5;
     }
 
-    attaque() {
+    attaque(chosenBoss) {
         if (this.nombreDeFleches >= 2) {
             this.nombreDeFleches -= 2;
             this.attack *= 1.4;
             this.health *= 0.75;
-            return this.attack;
+            chosenBoss.health-= this.attack;
+            console.log("charge heroique !")
+            
         } else {
             this.nombreDeFleches += 6;
             return 0;

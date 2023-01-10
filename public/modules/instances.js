@@ -15,15 +15,15 @@ const Sauron = new Boss("Sauron", 1000, 50);
 const Chronos = new Boss("Chronos", 500, 75);
 const Lilith = new Boss("Lilith", 250, 100);
 
-const bosses = [Sauron, Chronos, Lilith];
+export const boss = [Sauron, Chronos, Lilith];
 
 function chooseRandomBoss() {
     const randomIndex = Math.floor(Math.random() * 3);
 
-    return bosses[randomIndex];
+    return boss[randomIndex];
 }
 
-const chosenBoss = chooseRandomBoss();
+export const chosenBoss = chooseRandomBoss();
 alert(`Vous allez affronter le grand ${chosenBoss.name}.`);
 
 alert(`Le sort est cruel, quels sera le nom de vos trois Héros légendaire ?`);
@@ -65,7 +65,7 @@ function chooseCharacterState(guerrier) {
 
 
     if (choice === "1") {
-        guerrier.attaque();
+        guerrier.attaque(chooseRandomBoss);
         } else if (choice === "2") {
         guerrier.defense();
         } else {
@@ -86,7 +86,7 @@ function chooseCharacterState1(mage) {
 
 
     if (choice === "1") {
-        mage.attaque();
+        mage.attaque(chooseRandomBoss);
         } else if (choice === "2") {
         mage.defense();
         } else {
@@ -109,7 +109,7 @@ function chooseCharacterState2(archer) {
 
 
     if (choice === "1") {
-    archer.attaque();
+    archer.attaque(chooseRandomBoss);
     } else if (choice === "2") {
     archer.defense();
     } else {
@@ -130,7 +130,7 @@ function attack(personnages, boss) {
     if (target.health <= 0) {
         console.log(`${target.name} est tombé au combat.`);
 
-        characters.splice(characters.indexOf(target), 1);
+        personnages.splice(personnages.indexOf(target), 1);
     }
 }
 
