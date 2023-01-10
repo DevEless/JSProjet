@@ -137,6 +137,7 @@ function attack(personnages, boss) {
 
 function calculateHealth(personnages, boss) {
     console.log(`La vie du boss est de ${boss.health}.`);
+    // if a appliquer 
     personnages.forEach(personnages => {
         console.log(`La vie de ${personnages.name} est de ${personnages.health}.`);
     });

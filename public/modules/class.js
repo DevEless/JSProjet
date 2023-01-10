@@ -18,6 +18,7 @@ export class Boss {
     }
 }
 
+// chelou a voir
 const Sauron = new Boss('Sauron', 1000, 50);
 const Chronos = new Boss('Chronos', 500, 75);
 const Lilith = new Boss('Lilith', 250, 100);
@@ -28,6 +29,8 @@ Lilith.proposeEnigme();
 
 
 //Héros//
+
+//a voir avec des extends 
 export class Guerrier {
     constructor(name, health, attack) {
         this.name = name;
@@ -52,7 +55,7 @@ export class Guerrier {
     }
 
     attaque() {
-    }
+    } 
 }
 export class Mage {
     constructor(name, health, attack) {
