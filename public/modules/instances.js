@@ -12,9 +12,9 @@ import {
 } from "./class.js";
 
 
-const Sauron = new Boss("Sauron", 1000, 50);
-const Chronos = new Boss("Chronos", 500, 75);
-const Lilith = new Boss("Lilith", 250, 100);
+const Sauron = new Boss("Sauron", 350, 50);
+const Chronos = new Boss("Chronos", 350, 50);
+const Lilith = new Boss("Lilith", 350, 50);
 
 export const boss = [Sauron, Chronos, Lilith];
 
@@ -40,9 +40,9 @@ const nomArcher = obtenirNomUtilisateur("archer");
 
 function createPersonnage() {
     const healthPoints = +prompt(
-        "Entrez le nombre de points de vie à attribuer aux personnages entre 1 et 100"
+        "Entrez le nombre de points de vie à attribuer aux personnages entre 400 et 1000"
     );
-    const attackPoints = +prompt("Entrez le nombre de points d'attaque à attribuer aux personnages entre 1 et 100 :");
+    const attackPoints = +prompt("Entrez le nombre de points d'attaque à attribuer aux personnages entre 1 et 50 :");
 
     const guerrier = new Guerrier(nomGuerrier, healthPoints, attackPoints);
     const mage = new Mage(nomMage, healthPoints, attackPoints);

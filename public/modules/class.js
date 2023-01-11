@@ -7,7 +7,7 @@ export class Boss {
         this.name = name;
         this.health = health;
         this.attack = attack;
-        this.maxHealth = 250
+        this.maxHealth = 350
 
     }
 
@@ -43,10 +43,10 @@ export class Boss {
     }
 }
 
-// chelou a voir
-const Sauron = new Boss("Sauron", 250, 50);
-const Chronos = new Boss("Chronos", 250, 75);
-const Lilith = new Boss("Lilith", 250, 100);
+// création des boss
+const Sauron = new Boss("Sauron", 350, 50);
+const Chronos = new Boss("Chronos", 350, 50);
+const Lilith = new Boss("Lilith", 350, 50);
 
 
 
