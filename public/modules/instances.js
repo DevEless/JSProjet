@@ -10,9 +10,7 @@ import {
 import {
     Archer
 } from "./class.js";
-import{
-    proposeEnigme
-}from "./class.js"
+
 
 const Sauron = new Boss("Sauron", 1000, 50);
 const Chronos = new Boss("Chronos", 500, 75);
@@ -42,9 +40,9 @@ const nomArcher = obtenirNomUtilisateur("archer");
 
 function createPersonnage() {
     const healthPoints = +prompt(
-        "Entrez le nombre de points de vie à attribuer aux personnages entre 1 et 1000:"
+        "Entrez le nombre de points de vie à attribuer aux personnages entre 1 et 100"
     );
-    const attackPoints = +prompt("Entrez le nombre de points d'attaque à attribuer aux personnages :");
+    const attackPoints = +prompt("Entrez le nombre de points d'attaque à attribuer aux personnages entre 1 et 100 :");
 
     const guerrier = new Guerrier(nomGuerrier, healthPoints, attackPoints);
     const mage = new Mage(nomMage, healthPoints, attackPoints);
@@ -139,23 +137,36 @@ function attack(personnages, boss) {
 
 
 function calculateHealth(personnages, boss) {
-    console.log(`La vie du boss est de ${boss.health}.`);
+    console.log(`La vie du boss est de ${chosenBoss.health}.`);
     // if a appliquer 
     personnages.forEach(personnages => {
         console.log(`La vie de ${personnages.name} est de ${personnages.health}.`);
     });
 }
-while(chosenBoss.health > 0){
-    if (chosenBoss.health == 50){
-        proposeEnigme();
-    }
-    attack(personnages, chosenBoss);
-    calculateHealth(personnages, chosenBoss); 
-    if (chosenBoss.health <= 0) {
-        console.log("le boss est vaincu !")
-        break;
-    }
+
+while (chosenBoss.health > 0 && (personnages[0].health > 0 || personnages[1].health > 0 || personnages[2].health > 0) ){
+if (personnages[0].health > 0 ) {
+    personnages[0].attaque(chosenBoss)
 }
+chosenBoss.proposeEnigme(personnages)
+calculateHealth(personnages, boss)
+if (personnages[1].health > 0 ) {
+    personnages[1].attaque(chosenBoss)
+}
+chosenBoss.proposeEnigme(personnages)
+calculateHealth(personnages, boss)
+if (personnages[2].health > 0 ) {
+    personnages[2].attaque(chosenBoss)
+} 
+chosenBoss.proposeEnigme(personnages)
+calculateHealth(personnages, boss)
+if(chosenBoss.health > 0)
+{
+    attack(personnages, chosenBoss)
+}
+
+}
+
 
 
 

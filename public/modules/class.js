@@ -1,6 +1,7 @@
 import {
     chosenBoss , boss
 } from "./instances.js"
+
 export class Boss {
     constructor(name, health, attack) {
         this.name = name;
@@ -10,21 +11,41 @@ export class Boss {
 
     }
 
-    proposeEnigme() {
-        if (this.health < this.maxHealth * 0.2) {
+    proposeEnigme(personnages) {
+        if (this.health < this.maxHealth * 0.2 && this.health > 0) {
             const phrases = ["Qu'est ce qui a quatre pates le matin deux le soir et trois a midi ?", "je suis le bien et le mal mais je n'ai pourtant aucun corps qui suis je ?", "Je commence la nuit et termine le matin qui suis je ?"];
             const index = Math.floor(Math.random() * phrases.length);
             const phrase = phrases[index];
+            const reponses = ["l'humain", "la justice", "n"]
+            const bon = reponses[index]
 
-            console.log(phrase);
+            alert(phrase);   
+            let chance = 3 
+            let reponse = ""
+            do {
+                reponse = prompt(phrase)
+                if (reponse === bon){
+                    alert("l'enigme est réussie ! le boss est mort ")
+                    this.health = 0
+                    return true
+                }
+                else{
+                    alert("echec critique, mauvaise reponse")
+                    chance  --
+                }
+            } while (chance > 0);
+            alert("vous n'avez plus de chance !")
+            personnages[0].health = 0
+            personnages[1].health = 0
+            personnages[2].health = 0
 
         }
     }
 }
 
 // chelou a voir
-const Sauron = new Boss("Sauron", 1000, 50);
-const Chronos = new Boss("Chronos", 500, 75);
+const Sauron = new Boss("Sauron", 250, 50);
+const Chronos = new Boss("Chronos", 250, 75);
 const Lilith = new Boss("Lilith", 250, 100);
 
 
@@ -82,7 +103,6 @@ export class Mage {
         if (this.pointsDeMana >= 2) {
             this.pointsDeMana -= 2;
             chosenBoss.health -= this.attack;
-            console.log(chosenBoss.health)
             
             
 
