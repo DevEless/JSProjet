@@ -10,6 +10,9 @@ import {
 import {
     Archer
 } from "./class.js";
+import{
+    proposeEnigme
+}from "./class.js"
 
 const Sauron = new Boss("Sauron", 1000, 50);
 const Chronos = new Boss("Chronos", 500, 75);
@@ -142,8 +145,17 @@ function calculateHealth(personnages, boss) {
         console.log(`La vie de ${personnages.name} est de ${personnages.health}.`);
     });
 }
+while(chosenBoss.health > 0){
+    if (chosenBoss.health == 50){
+        proposeEnigme();
+    }
+    attack(personnages, chosenBoss);
+    calculateHealth(personnages, chosenBoss); 
+    if (chosenBoss.health <= 0) {
+        console.log("le boss est vaincu !")
+        break;
+    }
+}
 
 
-attack(personnages, chosenBoss);
-calculateHealth(personnages, chosenBoss);
 
