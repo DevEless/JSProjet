@@ -1,4 +1,4 @@
-import * as chosenBoss from "./instances.js"
+import * as chosenBoss from "./fonction.js"
 
 export class Boss {
     constructor(name, health, attack) {
@@ -41,7 +41,7 @@ export class Boss {
     }
 }
 
-//Héros//
+
 
 //a voir avec des extends 
 export class Guerrier {
