@@ -7,7 +7,7 @@ function chooseRandomBoss() {
 
     return boss[randomIndex];
 }
-export const chosenBoss = chooseRandomBoss();
+
 
 //Fonction pour obtenir le nom des héros
 export function obtenirNomUtilisateur(classe) {

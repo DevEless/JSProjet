@@ -1,4 +1,4 @@
-import * as chosenBoss from "./fonction.js"
+import * as chosenBoss from "./instances.js"
 
 export class Boss {
     constructor(name, health, attack) {
