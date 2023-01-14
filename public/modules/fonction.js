@@ -1,13 +1,15 @@
 import { boss} from "./instances.js"
 import { Guerrier, Mage, Archer} from "./class.js"
-import { nomGuerrier, nomMage, nomArcher} from "./class.js"
+import { nomGuerrier, nomMage, nomArcher} from "./instances.js"
+
 // Fonction du choix aléatoir du boss
-function chooseRandomBoss() {
+export function chooseRandomBoss() {
     const randomIndex = Math.floor(Math.random() * 3);
 
     return boss[randomIndex];
 }
 
+export const chosenBoss = chooseRandomBoss();
 
 //Fonction pour obtenir le nom des héros
 export function obtenirNomUtilisateur(classe) {
@@ -25,10 +27,11 @@ export function createPersonnage() {
     const mage = new Mage(nomMage, healthPoints, attackPoints);
     const archer = new Archer(nomArcher, healthPoints, attackPoints);
 
-    return [guerrier, mage, archer];
+    return [guerrier, mage, archer] 
 }
-const [guerrier, mage, archer] = personnages;
 export const personnages = createPersonnage();
+
+
 
 //fonction pour choisir l'etat
 export function chooseCharacterState(guerrier) {
@@ -56,10 +59,6 @@ export function chooseCharacterState1(mage) {
 
     alert("1. Mettre le mage en mode attaque");
     alert("2. Mettre le mage en mode défense");
-    alert("3. S'abandonner au boss ultime");function chooseCharacterState(guerrier) {
-
-    alert("1. Mettre le guerrier en mode attaque");
-    alert("2. Mettre le guerrier en mode défense");
     alert("3. S'abandonner au boss ultime");
 
 
@@ -67,16 +66,16 @@ export function chooseCharacterState1(mage) {
 
 
     if (choice === "1") {
-        guerrier.attaque(chooseRandomBoss);
+        mage.attaque(chooseRandomBoss);
         } else if (choice === "2") {
-        guerrier.defense();
+        mage.defense();
         } else {
             console.log("Veuillez entrer un choix valide");
-            this.chooseState2();
+            
     
         }
     }
-}
+    
 
 
 export function chooseCharacterState2(archer) {
@@ -99,10 +98,6 @@ export function chooseCharacterState2(archer) {
     }
 }
 
-alert("le combat va commencer, tenez vous pret !")
-chooseCharacterState(guerrier)
-chooseCharacterState1(mage)
-chooseCharacterState2(archer)
 
 export function attack(personnages, boss) {
     const target = personnages[Math.floor(Math.random() * personnages.length)];

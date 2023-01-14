@@ -1,4 +1,5 @@
-import * as chosenBoss from "./instances.js"
+import { chosenBoss } from "./fonction";
+
 
 export class Boss {
     constructor(name, health, attack) {
@@ -84,7 +85,7 @@ export class Mage {
         this.health += 50;
     }
 
-    attaque(chooseRandomBoss) {
+    attaque(chosenBoss) {
         if (this.pointsDeMana >= 2) {
             this.pointsDeMana -= 2;
             chosenBoss.health -= this.attack;
