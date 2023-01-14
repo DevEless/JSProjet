@@ -1,17 +1,17 @@
 import {
-chosenBoss , calculateHealth , attack , personnages, createPersonnage , chooseRandomBoss, chooseCharacterState, chooseCharacterState1 , chooseCharacterState2 , obtenirNomUtilisateur
+calculateHealth , attack , createPersonnage , chooseRandomBoss, chooseCharacterState, chooseCharacterState1 , chooseCharacterState2 
 } from "./modules/fonction.js"
 import { boss} from "./modules/instances.js"
 
-chooseRandomBoss()
+
+export const chosenBoss = chooseRandomBoss()
 
 alert(`Vous allez affronter le grand ${chosenBoss.name}.`);
 
 alert(`Le sort est cruel, quels sera le nom de vos trois Héros légendaire ?`);
-obtenirNomUtilisateur(classe)
-createPersonnage()
-personnages = [guerrier, mage, archer] 
-console.log(personnages);
+
+const personnages = createPersonnage();
+const [guerrier, mage, archer] = personnages;
 
 alert("le combat va commencer, tenez vous pret !")
 chooseCharacterState(guerrier)

@@ -1,4 +1,3 @@
-import { chosenBoss } from "./fonction";
 
 
 export class Boss {

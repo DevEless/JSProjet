@@ -1,7 +1,8 @@
-import { Sauron, Lilith, Chronos} from "./instances.js"
+import { boss} from "./instances.js"
 import { Guerrier, Mage, Archer} from "./class.js"
-import { nomGuerrier, nomMage, nomArcher} from "./instances.js"
-const boss = [Sauron, Chronos, Lilith];
+import { chosenBoss } from "../main.js";
+
+
 // Fonction du choix aléatoir du boss
 export function chooseRandomBoss() {
     const randomIndex = Math.floor(Math.random() * 3);
@@ -9,14 +10,18 @@ export function chooseRandomBoss() {
     return boss[randomIndex];
 }
 
-export const chosenBoss = chooseRandomBoss();
+
 
 //Fonction pour obtenir le nom des héros
-export function obtenirNomUtilisateur(classe) {
+function obtenirNomUtilisateur(classe) {
     const name = prompt(`Veuillez entrer le nom du ${classe} :`);
     return name;
 }
-//Fonction pour crer un perso niveau vie et attaque
+const nomGuerrier = obtenirNomUtilisateur("guerrier");
+const nomMage = obtenirNomUtilisateur("mage");
+const nomArcher = obtenirNomUtilisateur("archer");
+
+//Fonction pour creer un perso niveau vie et attaque
 export function createPersonnage() {
     const healthPoints = prompt(
         "Entrez le nombre de points de vie à attribuer aux personnages entre 400 et 1000"
@@ -26,10 +31,9 @@ export function createPersonnage() {
     const guerrier = new Guerrier(nomGuerrier, healthPoints, attackPoints);
     const mage = new Mage(nomMage, healthPoints, attackPoints);
     const archer = new Archer(nomArcher, healthPoints, attackPoints);
-
-    return [guerrier, mage, archer] 
+    return [guerrier, mage,archer]
 }
-export const personnages = createPersonnage();
+
 
 
 
