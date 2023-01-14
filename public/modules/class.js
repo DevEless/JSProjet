@@ -1,5 +1,5 @@
 
-
+// CLASS BOSS
 export class Boss {
     constructor(name, health, attack) {
         this.name = name;
@@ -43,7 +43,7 @@ export class Boss {
 
 
 
-//a voir avec des extends 
+// CLASS SERVANT A LA FONCTION DE PERSONNALISATION
 export class Guerrier {
     constructor(name, health, attack) {
         this.name = name;
