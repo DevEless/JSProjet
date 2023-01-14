@@ -111,9 +111,9 @@ export function attack(personnages, boss) {
 
 
 export function calculateHealth(personnages, boss) {
-    console.log(`La vie du boss est de ${chosenBoss.health}.`);
+    alert(`La vie du boss est de ${chosenBoss.health}.`);
     // if a appliquer 
     personnages.forEach(personnages => {
-        console.log(`La vie de ${personnages.name} est de ${personnages.health}.`);
+        alert(`La vie de ${personnages.name} est de ${personnages.health}.`);
     });
 }
