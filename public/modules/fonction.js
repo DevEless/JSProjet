@@ -1,7 +1,7 @@
-import { boss} from "./instances.js"
+import { Sauron, Lilith, Chronos} from "./instances.js"
 import { Guerrier, Mage, Archer} from "./class.js"
 import { nomGuerrier, nomMage, nomArcher} from "./instances.js"
-
+const boss = [Sauron, Chronos, Lilith];
 // Fonction du choix aléatoir du boss
 export function chooseRandomBoss() {
     const randomIndex = Math.floor(Math.random() * 3);

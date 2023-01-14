@@ -6,10 +6,10 @@ import {
 } from "./fonction.js"
 
 
-const Sauron = new Boss("Sauron", 350, 50);
-const Chronos = new Boss("Chronos", 350, 50);
-const Lilith = new Boss("Lilith", 350, 50);
-export const boss = [Sauron, Chronos, Lilith];
+export const Sauron = new Boss("Sauron", 350, 50);
+export const Chronos = new Boss("Chronos", 350, 50);
+export const Lilith = new Boss("Lilith", 350, 50);
+
 
 export const nomGuerrier = obtenirNomUtilisateur("guerrier");
 export const nomMage = obtenirNomUtilisateur("mage");
