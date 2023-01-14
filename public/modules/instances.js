@@ -144,29 +144,13 @@ function calculateHealth(personnages, boss) {
     });
 }
 
-while (chosenBoss.health > 0 && (personnages[0].health > 0 || personnages[1].health > 0 || personnages[2].health > 0) ){
-if (personnages[0].health > 0 ) {
-    personnages[0].attaque(chosenBoss)
-}
-chosenBoss.proposeEnigme(personnages)
-calculateHealth(personnages, boss)
-if (personnages[1].health > 0 ) {
-    personnages[1].attaque(chosenBoss)
-}
-chosenBoss.proposeEnigme(personnages)
-calculateHealth(personnages, boss)
-if (personnages[2].health > 0 ) {
-    personnages[2].attaque(chosenBoss)
-} 
-chosenBoss.proposeEnigme(personnages)
-calculateHealth(personnages, boss)
-if(chosenBoss.health > 0)
-{
-    attack(personnages, chosenBoss)
-}
+for (let i = 0; i < 4; i++) {
 
+    chooseCharacterState(guerrier);
+    chooseCharacterState1(mage);
+    chooseCharacterState2(archer);
+    attack(personnages, chosenBoss);
+calculateHealth(personnages, chosenBoss);
 }
-
-
 
 
