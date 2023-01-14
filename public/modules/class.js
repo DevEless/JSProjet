@@ -43,19 +43,6 @@ export class Boss {
     }
 }
 
-// création des boss
-const Sauron = new Boss("Sauron", 350, 50);
-const Chronos = new Boss("Chronos", 350, 50);
-const Lilith = new Boss("Lilith", 350, 50);
-
-
-
-
-Sauron.proposeEnigme();
-Chronos.proposeEnigme();
-Lilith.proposeEnigme();
-
-
 //Héros//
 
 //a voir avec des extends 
