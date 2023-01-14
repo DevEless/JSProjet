@@ -1,6 +1,6 @@
 import { boss} from "./instances.js"
 import { Guerrier, Mage, Archer} from "./class.js"
-import { chosenBoss } from "../main.js";
+import { chosenBoss, nomGuerrier, nomMage, nomArcher } from "../main.js";
 
 
 // Fonction du choix aléatoir du boss
@@ -13,13 +13,11 @@ export function chooseRandomBoss() {
 
 
 //Fonction pour obtenir le nom des héros
-function obtenirNomUtilisateur(classe) {
+export function obtenirNomUtilisateur(classe) {
     const name = prompt(`Veuillez entrer le nom du ${classe} :`);
     return name;
 }
-const nomGuerrier = obtenirNomUtilisateur("guerrier");
-const nomMage = obtenirNomUtilisateur("mage");
-const nomArcher = obtenirNomUtilisateur("archer");
+
 
 //Fonction pour creer un perso niveau vie et attaque
 export function createPersonnage() {
@@ -33,9 +31,6 @@ export function createPersonnage() {
     const archer = new Archer(nomArcher, healthPoints, attackPoints);
     return [guerrier, mage,archer]
 }
-
-
-
 
 //fonction pour choisir l'etat
 export function chooseCharacterState(guerrier) {
@@ -122,20 +117,3 @@ export function calculateHealth(personnages, boss) {
         console.log(`La vie de ${personnages.name} est de ${personnages.health}.`);
     });
 }
-
-
-    const choice = prompt("Choisissez votre état : ");
-
-
-    if (choice === "1") {
-        mage.attaque(chooseRandomBoss);
-        } else if (choice === "2") {
-        mage.defense();
-        } else {
-            console.log("Veuillez entrer un choix valide");
-            
-    
-        }
-    
-
-
