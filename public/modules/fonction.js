@@ -21,10 +21,10 @@ export function obtenirNomUtilisateur(classe) {
 
 //Fonction pour creer un perso niveau vie et attaque
 export function createPersonnage() {
-    const healthPoints = parsInt(prompt(
+    const healthPoints = prompt(
         "Entrez le nombre de points de vie à attribuer aux personnages entre 400 et 1000"
-    ));
-    const attackPoints = parseInt(prompt("Entrez le nombre de points d'attaque à attribuer aux personnages entre 1 et 50 :"));
+    );
+    const attackPoints = prompt("Entrez le nombre de points d'attaque à attribuer aux personnages entre 1 et 50 :");
 
     if(attackPoints >= 1 && attackPoints <= 51 || healthPoints >= 400 && healthPoints <= 1000 ){
         const guerrier = new Guerrier(nomGuerrier, healthPoints, attackPoints);
