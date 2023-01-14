@@ -2,7 +2,7 @@
 import {
 calculateHealth , attack, createPersonnage, chooseRandomBoss, chooseCharacterState, chooseCharacterState1 ,obtenirNomUtilisateur, chooseCharacterState2 
 } from "./modules/fonction.js"
-import { boss} from "./modules/instances.js"
+import { boss} from "./modules/instanceboss.js"
 
 //APPEL POUR CHOISIR UN BOSS ALEATOIR//
 

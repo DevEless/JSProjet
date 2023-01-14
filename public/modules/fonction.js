@@ -1,4 +1,4 @@
-import { boss} from "./instances.js"
+import { boss} from "./instanceboss.js"
 import { Guerrier, Mage, Archer} from "./class.js"
 import { chosenBoss, nomGuerrier, nomMage, nomArcher } from "../main.js";
 
@@ -26,10 +26,18 @@ export function createPersonnage() {
     );
     const attackPoints = prompt("Entrez le nombre de points d'attaque à attribuer aux personnages entre 1 et 50 :");
 
-    const guerrier = new Guerrier(nomGuerrier, healthPoints, attackPoints);
-    const mage = new Mage(nomMage, healthPoints, attackPoints);
-    const archer = new Archer(nomArcher, healthPoints, attackPoints);
-    return [guerrier, mage,archer]
+    if(attackPoints >= 1 && attackPoints <= 51 || healthPoints >= 400 && healthPoints <= 1000 ){
+        const guerrier = new Guerrier(nomGuerrier, healthPoints, attackPoints);
+        const mage = new Mage(nomMage, healthPoints, attackPoints);
+        const archer = new Archer(nomArcher, healthPoints, attackPoints);
+        return [guerrier, mage,archer]
+    }
+    else {
+        alert("erreur")
+        
+    }
+
+
 }
 
 //fonction pour choisir l'etat
@@ -54,6 +62,7 @@ export function chooseCharacterState(guerrier) {
         }
     }
 
+// fonction pour choisir l'etat
 export function chooseCharacterState1(mage) {
 
     alert("1. Mettre le mage en mode attaque");
